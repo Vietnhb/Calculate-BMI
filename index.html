@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy Tính Chỉ Số BMI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculator">
+            <h1>Máy Tính Chỉ Số BMI</h1>
+            <p class="description">Chỉ số khối cơ thể (BMI) là thước đo lượng mỡ trong cơ thể dựa trên chiều cao và cân
+                nặng.</p>
+
+            <div class="unit-toggle">
+                <button id="metric" class="active">Hệ mét</button>
+                <button id="imperial">Hệ Anh</button>
+            </div>
+
+            <div class="input-group metric-inputs">
+                <div class="input-field">
+                    <label for="height">Chiều cao (cm)</label>
+                    <input type="number" id="height" placeholder="VD: 170">
+                </div>
+                <div class="input-field">
+                    <label for="weight">Cân nặng (kg)</label>
+                    <input type="number" id="weight" placeholder="VD: 65">
+                </div>
+            </div>
+
+            <div class="input-group imperial-inputs">
+                <div class="input-field">
+                    <label for="feet">Chiều cao (ft)</label>
+                    <input type="number" id="feet" placeholder="VD: 5">
+                </div>
+                <div class="input-field">
+                    <label for="inches">Chiều cao (inch)</label>
+                    <input type="number" id="inches" placeholder="VD: 10">
+                </div>
+                <div class="input-field">
+                    <label for="pounds">Cân nặng (lbs)</label>
+                    <input type="number" id="pounds" placeholder="VD: 150">
+                </div>
+            </div>
+
+            <button id="calculate" class="calculate-btn">Tính Chỉ Số BMI</button>
+
+            <div id="result" class="result-container">
+                <h2>Chỉ số BMI của bạn:</h2>
+                <div class="bmi-value">--</div>
+                <div class="bmi-category">--</div>
+
+                <div class="bmi-scale">
+                    <div class="scale-bar">
+                        <div class="indicator"></div>
+                    </div>
+                    <div class="scale-labels">
+                        <span>Thiếu cân</span>
+                        <span>Bình thường</span>
+                        <span>Thừa cân</span>
+                        <span>Béo phì</span>
+                    </div>
+                </div>
+
+                <div class="bmi-info">
+                    <div class="info-item">
+                        <span class="category">Thiếu cân:</span>
+                        <span class="range">Dưới 18.5</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="category">Bình thường:</span>
+                        <span class="range">18.5 - 24.9</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="category">Thừa cân:</span>
+                        <span class="range">25 - 29.9</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="category">Béo phì:</span>
+                        <span class="range">Từ 30 trở lên</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

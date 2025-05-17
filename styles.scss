@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3a0ca3;
+    --text-color: #333;
+    --light-bg: #f7f7f9;
+    --underweight-color: #4cc9f0;
+    --normal-color: #4ade80;
+    --overweight-color: #fbbf24;
+    --obese-color: #f87171;
+    --border-radius: 12px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: #f0f2f5;
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.calculator {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.unit-toggle {
+    display: flex;
+    margin-bottom: 25px;
+    background-color: var(--light-bg);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.unit-toggle button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.3s ease;
+
+    &.active {
+        background-color: var(--primary-color);
+        color: white;
+    }
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.input-field {
+    flex: 1;
+    min-width: 120px;
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius);
+        font-size: 16px;
+
+        &:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+    }
+}
+
+.calculate-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 25px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: var(--secondary-color);
+    }
+}
+
+.result-container {
+    background-color: var(--light-bg);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+
+    &.visible {
+        opacity: 1;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+    }
+}
+
+.bmi-value {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.bmi-category {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 50px;
+    display: inline-block;
+    margin: 0 auto 25px;
+    width: 100%;
+
+    &.underweight {
+        background-color: var(--underweight-color);
+        color: white;
+    }
+
+    &.normal {
+        background-color: var(--normal-color);
+        color: white;
+    }
+
+    &.overweight {
+        background-color: var(--overweight-color);
+        color: white;
+    }
+
+    &.obese {
+        background-color: var(--obese-color);
+        color: white;
+    }
+}
+
+.bmi-scale {
+    margin-bottom: 25px;
+
+    .scale-bar {
+        height: 20px;
+        background: linear-gradient(to right,
+                var(--underweight-color) 0%,
+                var(--underweight-color) 25%,
+                var(--normal-color) 25%,
+                var(--normal-color) 50%,
+                var(--overweight-color) 50%,
+                var(--overweight-color) 75%,
+                var(--obese-color) 75%,
+                var(--obese-color) 100%);
+        border-radius: 10px;
+        position: relative;
+
+        .indicator {
+            position: absolute;
+            width: 4px;
+            height: 30px;
+            background-color: #333;
+            top: -5px;
+            transform: translateX(-50%);
+            transition: left 0.5s ease;
+        }
+    }
+
+    .scale-labels {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        padding: 0 12px;
+
+        span {
+            font-size: 12px;
+            color: #666;
+            position: relative;
+        }
+    }
+}
+
+.bmi-info {
+    .info-item {
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+
+        .category {
+            font-weight: 600;
+        }
+
+        .range {
+            color: #666;
+        }
+    }
+}
+
+// Media queries for responsive design
+@media (max-width: 480px) {
+    .calculator {
+        padding: 20px;
+    }
+
+    .input-field {
+        flex: 100%;
+    }
+}
